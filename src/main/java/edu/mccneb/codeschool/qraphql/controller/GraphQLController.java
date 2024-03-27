@@ -28,7 +28,7 @@ public class GraphQLController {
         return recipes;
     }
     @QueryMapping
-    public Author getBookById(@Argument UUID authorId){
+    public Author getAuthorById(@Argument UUID authorId){
         return authors.stream().filter(author -> author.getId().toString().equals(authorId.toString())).findFirst().get();
     }
     @QueryMapping
@@ -77,7 +77,7 @@ public class GraphQLController {
         return recipes.stream().filter(recipe -> recipe.getAuthorId().toString().equals(author.getId().toString())).collect(Collectors.toList());
     }
     @SchemaMapping(typeName = "Recipe", field = "author")
-    public Author getAuthor(Recipe book){
-        return authors.stream().filter(author -> author.getId().toString().equals(book.getAuthorId().toString())).findFirst().get();
+    public Author getAuthor(Recipe recipe){
+        return authors.stream().filter(author -> author.getId().toString().equals(recipe.getAuthorId().toString())).findFirst().get();
     }
 }

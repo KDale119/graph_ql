@@ -4,6 +4,7 @@ type Author {
     lastName: String
     userName: String
     dateOfBirth: String
+    recipes: [Recipe]
 }
 type Recipe {
     id: ID
@@ -11,6 +12,7 @@ type Recipe {
     ingredients: [String]
     instructions: [String]
     category: Category
+    authors: Author
 }
 type Category {
     type: String
